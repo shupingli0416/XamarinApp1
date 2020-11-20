@@ -36,8 +36,7 @@ namespace UITest1
            app.WaitForElement(c=>c.Marked("Learn more"));
            app.Tap(c => c.Marked("Learn more"));
             //Thread.Sleep(2000);
-            //app.Back();
-            
+            //app.Back();        
         }
         
     }
