@@ -4,6 +4,10 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+
 
 namespace XamarinApp1.iOS
 {
@@ -22,6 +26,13 @@ namespace XamarinApp1.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            #if ENABLE_TEST_CLOUD
+            Xamarin.Calabash.Start();
+            #endif
+
+            AppCenter.Start("4acdf8c9-547f-4ac3-b68a-0579237a3047",
+                      typeof(Analytics), typeof(Crashes));
+
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());

@@ -17,6 +17,9 @@ namespace XamarinApp1.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+             AppCenter.Start("3ccfd31d-4891-4ebb-aca5-ccfeb04eb07e",
+                   typeof(Analytics), typeof(Crashes)); 
+            
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -25,10 +28,6 @@ namespace XamarinApp1.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-
-            AppCenter.Start("3ccfd31d-4891-4ebb-aca5-ccfeb04eb07e",
-                   typeof(Analytics), typeof(Crashes));
-
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
